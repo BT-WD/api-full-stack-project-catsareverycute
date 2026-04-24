@@ -20,6 +20,7 @@ const db = getFirestore(app);
 const img = document.getElementById("cat-image");
 const heartBtn = document.querySelector(".heart-btn");
 const nextBtn = document.getElementById("next-cat-btn");
+const ratingInput = document.getElementById("cat-rating"); 
 
 let currentCatUrl = "";
 
@@ -30,6 +31,8 @@ async function loadCat() {
 
     currentCatUrl = data[0].url;
     img.src = currentCatUrl;
+    
+    ratingInput.value = ""; 
 
     console.log("Loaded cat:", currentCatUrl);
   } catch (error) {
@@ -39,16 +42,13 @@ async function loadCat() {
 
 async function favoriteCat() {
   if (!currentCatUrl) return;
-
   try {
     const favId = encodeURIComponent(currentCatUrl);
     const favRef = doc(db, "favorites", favId);
-
     await setDoc(favRef, {
       url: currentCatUrl,
       favoritedAt: Date.now()
     });
-
     console.log("Favorited:", currentCatUrl);
   } catch (error) {
     console.error("Favorite error:", error);
@@ -56,12 +56,10 @@ async function favoriteCat() {
 }
 
 async function rateCat() {
-  if (!currentCatUrl) return;
+  if (!currentCatUrl || !ratingInput.value) return;
 
   try {
-    const ratingInput = document.getElementById("cat-rating");
     const rating = Number(ratingInput.value);
-
     const votesToAdd = Math.max(1, Math.min(10, rating));
 
     const catId = encodeURIComponent(currentCatUrl);
@@ -78,7 +76,6 @@ async function rateCat() {
         votes: increment(votesToAdd)
       });
     }
-
     console.log(`Added ${votesToAdd} votes for:`, currentCatUrl);
   } catch (error) {
     console.error("Rating error:", error);
@@ -86,10 +83,11 @@ async function rateCat() {
 }
 
 heartBtn.addEventListener("click", favoriteCat);
-nextBtn.addEventListener("click", loadCat);
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") rateCat();
+nextBtn.addEventListener("click", async () => {
+  await rateCat(); 
+  loadCat();       
 });
+
 
 loadCat();
