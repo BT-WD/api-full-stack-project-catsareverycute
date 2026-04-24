@@ -7,6 +7,7 @@
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
   </head>
+
   <body>
     <div class="navbar">
       <div class="title">CAT POLLS</div>
@@ -19,15 +20,20 @@
     <div class="container">
         <div id="statistics" class="page-content">
             <h1>Cat Leaderboard</h1>
-            <div class="leaderboard-item">
+
+            <ol class="leaderboard">
+              <li class="leaderboard-item">
+                <span class="rank">1.</span>
                 <div class="leaderboard-left">
-                <img src="https://cdn2.thecatapi.com/images/MTg3NjU0OA.jpg" alt="Cat Image" class="mini-cat-img">
-                <span class="cat-name">Whiskers</span>
+                  <img src="https://cdn2.thecatapi.com/images/MTg3NjU0OA.jpg" class="mini-cat-img">
+                  <span class="cat-name">Whiskers</span>
                 </div>
+                
                 <div class="leaderboard-right">
-                <span class="stat-count">1,240 Votes</span>
+                  <span class="stat-count">1,240 Votes</span>
                 </div>
-            </div>
+              </li>
+            </ol>
         </div>
 
         <div class="personal-stats">
