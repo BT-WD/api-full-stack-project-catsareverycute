@@ -3,44 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Full Stack Project</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <title>Cat Statistics</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
     <div class="navbar">
       <div class="title">CAT POLLS</div>
       <div class="links">
-        <a href="index.html">Voting</a> 
+        <a href="index.html">Voting</a>
         <a href="statistics.html">Statistics</a>
       </div>
-
     </div>
+
     <div class="container">
-        <div id="statistics" class="page-content">
-            <h1>Cat Leaderboard</h1>
+      <h1>Cat Leaderboard 🏆</h1>
 
-            <ol class="leaderboard">
-              <li class="leaderboard-item">
-                <span class="rank">1.</span>
-                <div class="leaderboard-left">
-                  <img src="https://cdn2.thecatapi.com/images/MTg3NjU0OA.jpg" class="mini-cat-img">
-                  <span class="cat-name">Whiskers</span>
-                </div>
-                
-                <div class="leaderboard-right">
-                  <span class="stat-count">1,240 Votes</span>
-                </div>
-              </li>
-            </ol>
-        </div>
+      <ol class="leaderboard" id="leaderboard"></ol>
 
-        <div class="personal-stats">
-            <h2>Your Stats</h2>
-            <p>Votes Cast: 42</p>
-            <p>Favorite Breed: Tabby</p>
-        </div>
+      <div class="personal-stats">
+        <h2>Your Stats</h2>
+        <p id="votes-cast">Votes Cast: 0</p>
+        <p id="favorite-cat">Favorite Cat: -</p>
+      </div>
     </div>
+
+    <script src="stats.js" type="module"></script>
   </body>
 </html>

@@ -3,33 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Full Stack Project</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <title>Cat Voting App</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
     <div class="navbar">
       <div class="title">CAT POLLS</div>
       <div class="links">
-        <a href="index.html">Voting</a> 
+        <a href="index.html">Voting</a>
         <a href="statistics.html">Statistics</a>
       </div>
     </div>
 
     <div class="main">
-      <h1 class="welcome-text">Vote for your favorite cat image!</h1>
+      <h1 class="welcome-text">Vote for your favorite cat 🐱</h1>
 
       <div class="img-container">
-        <img src="https://cdn2.thecatapi.com/images/MTg3NjU0OA.jpg" alt="Cute cat" class="cat-img">
+        <img id="cat-image" src="" alt="Random cat" class="cat-img" />
         <button class="heart-btn">❤️</button>
       </div>
 
       <div class="rating-controls">
-        <label for="cat-rating">⭐ Rate this cat image (1-10):</label>
-        <input type="number" id="cat-rating" name="rating" step="1" min="1" max="10" value="10">
-        <button class="submit-rating">Submit</button>
+        <label for="cat-rating">⭐ Rate this cat (1–10):</label>
+        <input type="number" id="cat-rating" min="1" max="10" value="10" />
       </div>
+
+      <button id="next-cat-btn">Next Cat ➜</button>
     </div>
+
+    <script src="index.js" type="module"></script>
   </body>
 </html>
